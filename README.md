@@ -4,6 +4,8 @@ Este projeto é um exemplo de microsserviço em **FastAPI** para multiplicação
 Caso o container mult1 caia, o tráfego é enviado para mult2.
 Caso ambos os containers principais caiam, o tráfego é enviado para mult_backup.
 
+<img width="906" height="741" alt="image" src="https://github.com/user-attachments/assets/2650235e-e2eb-4057-9b47-d99ae3385b93" />
+
 ---
 ## Rodando o projeto
 
