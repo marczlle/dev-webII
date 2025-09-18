@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  mult1:
+    build: ./mult
+    container_name: mult1
+    environment:
+      - CONTAINER_NAME=mult1
+    networks:
+      - multnet
+
+  mult2:
+    build: ./mult
+    container_name: mult2
+    environment:
+      - CONTAINER_NAME=mult2
+    networks:
+      - multnet
+
+  mult_backup:
+    build: ./mult
+    container_name: mult_backup
+    environment:
+      - CONTAINER_NAME=mult_backup
+    networks:
+      - multnet
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    ports:
+      - "8080:80"    # expõe o balanceador na porta 8080 do host
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - mult1
+      - mult2
+      - mult_backup
+    networks:
+      - multnet
+
+networks:
+  multnet:
+    driver: bridge
