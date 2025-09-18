@@ -25,6 +25,10 @@ Caso ambos os containers principais caiam, o tráfego é enviado para mult_backu
     "op2": 9
     }
 
+A resposta é algo como:
+
+<img width="468" height="458" alt="image" src="https://github.com/user-attachments/assets/617c2b1a-c9c7-4f98-9ec9-575c13170ee8" />
+
 5. Parar o projeto:
     ```docker-compose down```
 
